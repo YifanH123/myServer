@@ -19,7 +19,7 @@ app.get('/number2', (req, res) => {
 })
 
 app.get('/number3', (req, res) => {
-  res.send('<button style="position:absolute; left: 50%; top: 50%" onclick="location.href='https://google.com'">3</button>');
+  res.send('<button style="position:absolute; left: 50%; top: 50% onclick="location.href='https://surviv.io'">3</button>');
 })
 
 app.get('/button', (req, res) => {
