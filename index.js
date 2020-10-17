@@ -19,10 +19,10 @@ app.get('/number2', (req, res) => {
 })
 
 app.get('/number3', (req, res) => {
-  res.send('3');
+  res.send('<button style="position:absolute; left: 50%; top: 50%">3</button>');
 })
 
-app.get('/number4', (req, res) => {
+app.get('/button', (req, res) => {
   res.send('<button style="position:absolute; left: 50%; top: 50%">hi</button>');
 })
 
