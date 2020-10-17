@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+var port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 })
 
 app.get('/random', (req, res) => {
-  res.send('smth else');
+  res.send('something else');
 })
 
 app.get('/number1', (req, res) => {
