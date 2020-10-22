@@ -2,8 +2,49 @@
 <html>
 <head>
 	<title></title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		window.num2 = 0;
+		window.num1 = 0;
+		window.opperator = false;
+		function add(a, b) {
+			window.opperator = true;
+		}
+		function buttonclick(a) {
+			if (window.opperator) {
+				window.num2 = a;
+			} else {
+				window.num1 = a;
+			}
+		}
+		function equal() {
+			if (window.opperator) {
+				window.num1 = window.num1 + window.num2;
+				$("#paragraph1").text(window.num1);
+				window.opperator = false;
+			} else {
+				alert("Error");
+			}
+		}
+	</script>
 </head>
 <body>
-<button onclick="alert('hi ig')">Hi</button>
+	<p id="paragraph1"></p>
+	<button onclick="buttonclick(7)">7</button>
+	<button onclick="buttonclick(8)">8</button>
+	<button onclick="buttonclick(9)">9</button>
+	<button onclick="add()">+</button>
+	<br>
+	<button onclick="buttonclick(4)">4</button>
+	<button onclick="buttonclick(5)">5</button>
+	<button onclick="buttonclick(6)">6</button>
+	<button onclick="equal()">=</button>
+	<br>
+	<button onclick="buttonclick(1)">1</button>
+	<button onclick="buttonclick(2)">2</button>
+	<button onclick="buttonclick(3)">3</button>
+<script type="text/javascript">
+	$("#paragraph1").text(window.num1);
+</script>
 </body>
 </html>
