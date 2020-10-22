@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/calc', (req, res) => {
-	res.sendFile(__dirname + "/calculator.html");
+	res.sendFile(__dirname + "/index.html");
 })
 
 app.get('/desmos', (req, res) => {
