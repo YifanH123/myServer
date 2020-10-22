@@ -11,6 +11,9 @@
 		function clear() {
 			document.getElementById("display").value = "";
 		}
+		function deletes() {
+			document.getElementById("display").value = document.getElementById("display").value.slice(0, -1);
+		}
 		function add() {
 			window.num1 = document.getElementById("display").value;
 			clear();
@@ -40,10 +43,10 @@
 			}
 		}
 		function switch_sign() {
-			if (document.getElementById("display").value[0] != "-") {
-				document.getElementById("display").value = "-" + document.getElementById("display").value
-			} else if (document.getElementById("display").value[0] == "-") {
-				document.getElementById("display").value = document.getElementById("display").value[1:]
+			if (document.getElementById("display").value.slice(0, 1) != "-") {
+				document.getElementById("display").value = "-" + document.getElementById("display").value;
+			} else if (document.getElementById("display").value.slice(0, 1) == "-") {
+				document.getElementById("display").value = document.getElementById("display").value.replace("-", "");
 			}
 		}
 	</script>
@@ -53,7 +56,7 @@
 	<br>
 	<button onclick="clear()"             style="width:20%">Clear</button>
 	<button onclick="switch_sign()"       style="width:20%">+⇔-</button>
-	<button                               style="width:20%">⌫</button>
+	<button onclick="deletes()"           style="width:20%">⌫</button>
 	<br>
 	<button onclick="buttonclick_not0(7)" style="width:20%">7</button>
 	<button onclick="buttonclick_not0(8)" style="width:20%">8</button>
