@@ -11,7 +11,7 @@ app.get('/calc', (req, res) => {
 })
 
 app.get('/desmos', (req, res) => {
-	res.send(`<button onclick="location.href='http://www.desmos.com'" type="button">3</button>`);
+	res.send(`<button onclick="location.href='http://www.desmos.com'" type="button">Desmos</button>`);
 })
 
 app.get('/number2', (req, res) => {
@@ -19,7 +19,7 @@ app.get('/number2', (req, res) => {
 })
 
 app.get('/number3', (req, res) => {
-	res.send(`<button onclick="location.href='http://www.desmos.com'"; type="button">3</button>`);
+	res.send(`<button onclick="location.href='http://www.desmos.com'"; type="button">Desmos</button>`);
 })
 
 app.get('/button', (req, res) => {
