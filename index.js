@@ -3,7 +3,7 @@ const app = express();
 var port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(__dirname + "/calculator.html");
 })
 
 app.get('/random', (req, res) => {
