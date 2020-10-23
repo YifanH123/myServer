@@ -11,7 +11,7 @@ app.get('/calc', (req, res) => {
 })
 
 app.get('/math_links', (req, res) => {
-	res.send(`<button onclick="location.href='http://www.desmos.com'" type="button">Desmos</button>`);
+	res.send(__dirname + "/math_links.html");
 })
 
 app.get('/button', (req, res) => {
