@@ -14,16 +14,16 @@ app.get('/math_links', (req, res) => {
 	res.send(`<button onclick="location.href='http://www.desmos.com'" type="button">Desmos</button>`);
 })
 
-app.get('/number2', (req, res) => {
-	res.send('2');
-})
-
-app.get('/number3', (req, res) => {
-	res.send(`<button onclick="location.href='http://www.desmos.com'"; type="button">Desmos</button>`);
-})
-
 app.get('/button', (req, res) => {
 	res.send('<button style="position:absolute; left: 50%; top: 50%">hi</button>');
+})
+
+app.get('/proxy', (req, res) => {
+	res.sendFile(__dirname + "/proxy.html");
+})
+
+app.get('/war-ing_rules', (req, res) => {
+	res.sendFile(__dirname + "/war-ing_rules.html");
 })
 
 app.listen(port, () => {
