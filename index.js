@@ -10,7 +10,7 @@ app.get('/calc', (req, res) => {
 	res.sendFile(__dirname + "/calculator.html");
 })
 
-app.get('/desmos', (req, res) => {
+app.get('/math_links', (req, res) => {
 	res.send(`<button onclick="location.href='http://www.desmos.com'" type="button">Desmos</button>`);
 })
 

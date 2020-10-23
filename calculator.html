@@ -8,16 +8,23 @@
 		window.num1;
 		window.opperator = "";
 		window.is_opperator = false;
-		function clear() {
-			document.getElementById("display").value = "";
+		function added() {
+			if (window.opperator.length == "1") {
+				alert("Error")
+				cleared()
+			} else {
+				window.num1 = document.getElementById("display").value;
+				cleared();
+				window.opperator = "+";
+			}
+		}
+		function cleared() {
+			document.getElementById("display").value = "0";
+			window.opperator = "";
+			window.is_opperator = false;
 		}
 		function deletes() {
 			document.getElementById("display").value = document.getElementById("display").value.slice(0, -1);
-		}
-		function add() {
-			window.num1 = document.getElementById("display").value;
-			clear();
-			window.opperator = "+";
 		}
 		function buttonclick_not0(a) {
 			current = document.getElementById("display").value;
@@ -30,9 +37,25 @@
 				window.is_opperator = true;
 			}
 		}
+		function buttonclick_0() {
+			current = document.getElementById("display").value;
+			if (current == 0) {
+				document.getElementById("display").value = "0";
+			} else {
+				document.getElementById("display").value = current + "0";
+			}
+		}
+		function buttonclick_period() {
+			current = document.getElementById("display").value;
+			if (document.getElementById("display").value == "") {
+				document.getElementById("display").value = "0.";
+			} else {
+				document.getElementById("display").value = document.getElementById("display").value + ".";
+			}
+		}
 		function equal() {
 			if (window.is_opperator) {
-				window.num2 = document.getElementById("display").value
+				window.num2 = document.getElementById("display").value;
 				window.num1 = parseInt(window.num1) + parseInt(window.num2);
 				document.getElementById("display").value = window.num1;
 				$("#paragraph1").text(window.num1);
@@ -47,30 +70,37 @@
 				document.getElementById("display").value = "-" + document.getElementById("display").value;
 			} else if (document.getElementById("display").value.slice(0, 1) == "-") {
 				document.getElementById("display").value = document.getElementById("display").value.replace("-", "");
+			} else {
+				alert("Error");
+				cleared();
 			}
 		}
 	</script>
 </head>
 <body>
-	<input type="String" id="display" value="0" style="width:80%">
+	<input type="String" id="display" value="0" style="width:485px">
 	<br>
-	<button onclick="clear()"             style="width:20%">Clear</button>
-	<button onclick="switch_sign()"       style="width:20%">+⇔-</button>
-	<button onclick="deletes()"           style="width:20%">⌫</button>
+	<button onclick="cleared();"            style="width:120px; height:50px">Clear</button>
+	<button onclick="switch_sign();"        style="width:120px; height:50px">+⇔-</button>
+	<button onclick=""                     style="width:120px; height:50px">back</button>
+	<button onclick="deletes();"            style="width:120px; height:50px">⌫</button>
 	<br>
-	<button onclick="buttonclick_not0(7)" style="width:20%">7</button>
-	<button onclick="buttonclick_not0(8)" style="width:20%">8</button>
-	<button onclick="buttonclick_not0(9)" style="width:20%">9</button>
-	<button onclick="add()"               style="width:20%">+</button>
+	<button onclick="buttonclick_not0(7);"  style="width:120px; height:50px">7</button>
+	<button onclick="buttonclick_not0(8);"  style="width:120px; height:50px">8</button>
+	<button onclick="buttonclick_not0(9);"  style="width:120px; height:50px">9</button>
+	<button onclick="added();"                style="width:120px; height:50px">+</button>
 	<br>
-	<button onclick="buttonclick_not0(4)" style="width:20%">4</button>
-	<button onclick="buttonclick_not0(5)" style="width:20%">5</button>
-	<button onclick="buttonclick_not0(6)" style="width:20%">6</button>
-	<button onclick="equal()"             style="width:20%">=</button>
+	<button onclick="buttonclick_not0(4);"  style="width:120px; height:50px">4</button>
+	<button onclick="buttonclick_not0(5);"  style="width:120px; height:50px">5</button>
+	<button onclick="buttonclick_not0(6);"  style="width:120px; height:50px">6</button>
+	<button onclick="equal();"              style="width:120px; height:50px">=</button>
 	<br>
-	<button onclick="buttonclick_not0(1)" style="width:20%">1</button>
-	<button onclick="buttonclick_not0(2)" style="width:20%">2</button>
-	<button onclick="buttonclick_not0(3)" style="width:20%">3</button>
+	<button onclick="buttonclick_not0(1);"  style="width:120px; height:50px">1</button>
+	<button onclick="buttonclick_not0(2);"  style="width:120px; height:50px">2</button>
+	<button onclick="buttonclick_not0(3);"  style="width:120px; height:50px">3</button>
+	<br>
+	<button onclick="buttonclick_0();"      style="width:120px; height:50px">0</button>
+	<button onclick="buttonclick_period();" style="width:120px; height:50px">.</button>
 <script type="text/javascript">
 	document.getElementById("display").value = window.num1.toString();
 </script>
