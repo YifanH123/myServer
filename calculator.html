@@ -8,27 +8,64 @@
 		window.num1;
 		window.opperator = "";
 		window.is_opperator = false;
+
+		function cleared() {
+			document.getElementById("display").value = "0";
+			window.opperator = "";
+			window.is_opperator = false;
+		}
+		
 		function added() {
 			if (window.opperator.length == "1") {
-				alert("Error")
-				cleared()
+				alert("Error");
+				cleared();
 			} else {
 				window.num1 = document.getElementById("display").value;
 				cleared();
 				window.opperator = "+";
 			}
 		}
-		function cleared() {
-			document.getElementById("display").value = "0";
-			window.opperator = "";
-			window.is_opperator = false;
+		
+		function subtracted() {
+			if (window.opperator.length == "1") {
+				alert("Error");
+				cleared();
+			} else {
+				window.num1 = document.getElementById("display").value;
+				cleared();
+				window.opperator = "-";
+			}
 		}
+		
+		function divides() {
+			if (window.opperator.length == "1") {
+				alert("Error");
+				cleared();
+			} else {
+				window.num1 = document.getElementById("display").value;
+				cleared();
+				window.opperator = "/";
+			}
+		}
+		
+		function multiplied() {
+			if (window.opperator.length == "1") {
+				alert("Error");
+				cleared();
+			} else {
+				window.num1 = document.getElementById("display").value;
+				cleared();
+				window.opperator = "*";
+			}
+		}
+		
 		function deletes() {
 			document.getElementById("display").value = document.getElementById("display").value.slice(0, -1);
 		}
+		
 		function buttonclick_not0(a) {
 			current = document.getElementById("display").value;
-			if (current != 0) {
+			if (current.toString() != "0") {
 				document.getElementById("display").value = current.toString() + a.toString();
 			} else {
 				document.getElementById("display").value = a.toString();
@@ -37,26 +74,37 @@
 				window.is_opperator = true;
 			}
 		}
+		
 		function buttonclick_0() {
 			current = document.getElementById("display").value;
-			if (current == 0) {
+			if (current == "0") {
 				document.getElementById("display").value = "0";
 			} else {
 				document.getElementById("display").value = current + "0";
 			}
 		}
+		
 		function buttonclick_period() {
 			current = document.getElementById("display").value;
 			if (document.getElementById("display").value == "") {
 				document.getElementById("display").value = "0.";
 			} else {
-				document.getElementById("display").value = document.getElementById("display").value + ".";
+				document.getElementById("display").value = current + ".";
 			}
 		}
-		function equal() {
+		
+		function equals() {
 			if (window.is_opperator) {
 				window.num2 = document.getElementById("display").value;
-				window.num1 = parseInt(window.num1) + parseInt(window.num2);
+				if (window.opperator == "+") {
+					window.num1 = parseFloat(window.num1) + parseFloat(window.num2);
+				} else if (window.opperator == "-") {
+					window.num1 = parseFloat(window.num1) - parseFloat(window.num2);
+				} else if (window.opperator == "*") {
+					window.num1 = parseFloat(window.num1) * parseFloat(window.num2);
+				} else if (window.opperator == "/") {
+					window.num1 = parseFloat(window.num1) / parseFloat(window.num2);
+				}
 				document.getElementById("display").value = window.num1;
 				window.opperator = "";
 				window.is_opperator = false;
@@ -64,6 +112,7 @@
 				alert("Error");
 			}
 		}
+		
 		function switch_sign() {
 			if (document.getElementById("display").value.slice(0, 1) != "-") {
 				document.getElementById("display").value = "-" + document.getElementById("display").value;
@@ -79,28 +128,31 @@
 <body>
 	<input type="String" id="display" value="0" style="width:485px">
 	<br>
-	<button onclick="cleared();"            style="width:120px; height:50px">Clear</button>
-	<button onclick="switch_sign();"        style="width:120px; height:50px">+⇔-</button>
+	<button onclick="cleared();" style="width:120px; height:50px">Clear</button>
+	<button onclick="switch_sign();" style="width:120px; height:50px">+⇔-</button>
 	<button onclick="location.href='https://fierce-coast-97594.herokuapp.com/'"
 			style="width:120px; height:50px">Back</button>
 	<button onclick="deletes();"            style="width:120px; height:50px">⌫</button>
 	<br>
-	<button onclick="buttonclick_not0(7);"  style="width:120px; height:50px">7</button>
-	<button onclick="buttonclick_not0(8);"  style="width:120px; height:50px">8</button>
-	<button onclick="buttonclick_not0(9);"  style="width:120px; height:50px">9</button>
-	<button onclick="added();"                style="width:120px; height:50px">+</button>
+	<button onclick="buttonclick_not0(7);" style="width:120px; height:50px">7</button>
+	<button onclick="buttonclick_not0(8);" style="width:120px; height:50px">8</button>
+	<button onclick="buttonclick_not0(9);" style="width:120px; height:50px">9</button>
+	<button onclick="divides();" style="width:120px; height:50px">÷</button>
 	<br>
-	<button onclick="buttonclick_not0(4);"  style="width:120px; height:50px">4</button>
-	<button onclick="buttonclick_not0(5);"  style="width:120px; height:50px">5</button>
-	<button onclick="buttonclick_not0(6);"  style="width:120px; height:50px">6</button>
-	<button onclick="equal();"              style="width:120px; height:50px">=</button>
+	<button onclick="buttonclick_not0(4);" style="width:120px; height:50px">4</button>
+	<button onclick="buttonclick_not0(5);" style="width:120px; height:50px">5</button>
+	<button onclick="buttonclick_not0(6);" style="width:120px; height:50px">6</button>
+	<button onclick="multiplied();" style="width:120px; height:50px">x</button>
 	<br>
-	<button onclick="buttonclick_not0(1);"  style="width:120px; height:50px">1</button>
-	<button onclick="buttonclick_not0(2);"  style="width:120px; height:50px">2</button>
-	<button onclick="buttonclick_not0(3);"  style="width:120px; height:50px">3</button>
+	<button onclick="buttonclick_not0(1);" style="width:120px; height:50px">1</button>
+	<button onclick="buttonclick_not0(2);" style="width:120px; height:50px">2</button>
+	<button onclick="buttonclick_not0(3);" style="width:120px; height:50px">3</button>
+	<button onclick="subtracted();" style="width:120px; height:50px">-</button>
 	<br>
-	<button onclick="buttonclick_0();"      style="width:120px; height:50px">0</button>
+	<button onclick="buttonclick_0();" style="width:120px; height:50px">0</button>
 	<button onclick="buttonclick_period();" style="width:120px; height:50px">.</button>
+	<button onclick="equals();" style="width:120px; height:50px">=</button>
+	<button onclick="added();" style="width:120px; height:50px">+</button>
 <script type="text/javascript">
 	document.getElementById("display").value = window.num1.toString();
 </script>
