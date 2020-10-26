@@ -10,6 +10,11 @@
 		window.opperator = "";
 		window.is_opperator = false;
 
+		function errored() {
+			alert("Error")
+			cleared()
+		}
+
 		function cleared() {
 			document.getElementById("display").value = "0";
 			window.opperator = "";
@@ -18,8 +23,7 @@
 		
 		function added() {
 			if (window.opperator.length == "1") {
-				alert("Error");
-				cleared();
+				errored();
 			} else {
 				window.num1 = document.getElementById("display").value;
 				cleared();
@@ -29,8 +33,7 @@
 		
 		function subtracted() {
 			if (window.opperator.length == "1") {
-				alert("Error");
-				cleared();
+				errored();
 			} else {
 				window.num1 = document.getElementById("display").value;
 				cleared();
@@ -40,8 +43,7 @@
 		
 		function divides() {
 			if (window.opperator.length == "1") {
-				alert("Error");
-				cleared();
+				errored();
 			} else {
 				window.num1 = document.getElementById("display").value;
 				cleared();
@@ -51,8 +53,7 @@
 		
 		function multiplied() {
 			if (window.opperator.length == "1") {
-				alert("Error");
-				cleared();
+				errored();
 			} else {
 				window.num1 = document.getElementById("display").value;
 				cleared();
@@ -110,7 +111,7 @@
 				window.opperator = "";
 				window.is_opperator = false;
 			} else {
-				alert("Error");
+				errored();
 			}
 		}
 		
