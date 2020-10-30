@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Converter</title>
+	<script type="text/javascript">
+		function converter(n, b) {
+			var number = 0;
+			if (n == 0) {
+				number = 0;
+			}
+			if (n > 0) {
+				sign = true;
+			} else {
+				sign = false;
+				n = abs(n);
+			}
+			var digits = [];
+			while (n > 0) {
+				m = n % b;
+				n = Math.floor(n / b);
+				digits.push(m);
+			}
+			dictionary = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			for (d = 0; d < digits.lenght; d++) {
+				encoding = encoding + digits[d];
+			}
+			if (sign) {
+				encoding = "-" + encoding;
+			}
+			alert(encoding);
+		}
+	</script>
+</head>
+<body>
+<p>Base Convertor</p>
+<input type="String" id="input_number">
+<input type="Sting" id="output_number">
+<br>
+<button onclick="converter(document.getElementById('input_number').value, document.getElementById('input_base').value)" style="width:310px">
+	Convert!
+</button>
+<br>
+<input type="String" id="input_base">
+<input type="String" id="output_base">
+</body>
+</html>

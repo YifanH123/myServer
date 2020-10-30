@@ -18,12 +18,8 @@ app.get('/button', (req, res) => {
 	res.send('<button style="position:absolute; left: 50%; top: 50%">hi</button>');
 })
 
-app.get('/proxy', (req, res) => {
-	res.sendFile(__dirname + "/proxy.html");
-})
-
-app.get('/war-ing_rules', (req, res) => {
-	res.sendFile(__dirname + "/war-ing_rules.html");
+app.get('/mage_game', (req, res) => {
+	res.sendFile(__dirname + "/mage-game.html");
 })
 
 app.listen(port, () => {

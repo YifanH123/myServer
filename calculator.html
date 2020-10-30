@@ -11,8 +11,8 @@
 		window.is_opperator = false;
 
 		function errored() {
-			alert("Error")
-			cleared()
+			alert("Error");
+			cleared();
 		}
 
 		function cleared() {
@@ -116,13 +116,15 @@
 		}
 		
 		function switch_sign() {
-			if (document.getElementById("display").value.slice(0, 1) != "-") {
-				document.getElementById("display").value = "-" + document.getElementById("display").value;
-			} else if (document.getElementById("display").value.slice(0, 1) == "-") {
-				document.getElementById("display").value = document.getElementById("display").value.replace("-", "");
-			} else {
-				alert("Error");
-				cleared();
+			if (document.getElementById("display").value == 0) {
+				if (document.getElementById("display").value.slice(0, 1) != "-") {
+					document.getElementById("display").value = "-" + document.getElementById("display	").value;
+				} else if (document.getElementById("display").value.slice(0, 1) == "-") {
+					document.getElementById("display").value = document.getElementById("display").value.replace("-", "");
+				} else {
+					alert("Error");
+					cleared();
+				}
 			}
 		}
 	</script>
