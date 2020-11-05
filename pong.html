@@ -13,9 +13,9 @@
 		function set_x(num,id_num) {
 			$("#"+id_num).css("left", num);
 		}
-		function handle_set_x(p){
+		function handle_set_x(p,id_num){
 		  	document.getElementById('info').innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
-		  	set_x(p.pageX-70,"p1");
+		  	set_x(p.pageX-70,id_num);
 			socket.emit("move", {pos_x:pos_x, id_num:id_num});
 		}
 	</script>
