@@ -2,16 +2,25 @@
 <html>
 <head>
 	<title>Pong</title>
+	<link rel="icon" href="https://img.icons8.com/pastel-glyph/64/000000/ping-pong.png"/>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		function move_x(num,id_num) {
 			var pos_x = parseInt($("#"+id_num).css("left"));
 			pos_x += num;
 			$("#"+id_num).css("left", pos_x);
-			socket.emit("move", {pos_x:pos_x, id_num:id_num});
+			if (id_num == "p1") {
+				socket.emit("move", {pos_x:pos_x, id_num:"p2"});
+			} else {
+				socket.emit("move", {pos_x:pos_x, id_num:"p1"})
+			}
 		}
 		function set_x(num,id_num) {
 			$("#"+id_num).css("left", num);
+		}
+		function tellPos(p){
+		  document.getElementById('info').innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
+		  set_x(p.pageX-70,"p1");
 		}
 	</script>
 	<script src="/socket.io/socket.io.js"></script>
@@ -24,13 +33,15 @@
 	</script>
 </head>
 <body>
+	<script type="text/javascript">
+		addEventListener('mousemove', tellPos, false);
+	</script>
 	<div style="position:absolute;top:600px;left:45px;background-color:blue;height:10px;width:150px;"
 		id="p1"></div>
-	<button style="position:absolute;top:95%;" onclick="move_x(-10,'p1')">Left</button>
-	<button style="position:absolute;top:95%;left:20%" onclick="move_x(10, 'p1')">Right</button>
 	<div style="position:absolute;top:300px;left:45px;background-color: red;height:10px;width:150px;"
 		id="p2"></div>
 	<button style="position:absolute;top:95%;left:60%" onclick="move_x(-10, 'p2')">Left</button>
 	<button style="position:absolute;top:95%;left:80%" onclick="move_x(10, 'p2')">Right</button>
+	<div style="position:absolute;top:10px;left:10px;background-color:black;padding:25px 50px;color:white;" id='info'></div>
 </body>
 </html>
