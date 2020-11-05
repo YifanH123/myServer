@@ -4,31 +4,33 @@
 	<title>Pong</title>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		function move_x(num) {
-			var pos_x = parseInt($("#div").css("left"));
+		function move_x(num,id_num) {
+			var pos_x = parseInt($("#"+id_num).css("left"));
 			pos_x += num;
-			$("#div").css("left", pos_x);
-			socket.emit("move", {pos_x:pos_x});
+			$("#"+id_num).css("left", pos_x);
+			socket.emit("move", {pos_x:pos_x, id_num:id_num});
 		}
-		function set_x(num) {
-			$("#div").css("left", num);
+		function set_x(num,id_num) {
+			$("#"+id_num).css("left", num);
 		}
 	</script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
 		var socket = io();
 		window.socket = socket;
-		socket.on("move", function(num) {
-			set_x(num.pos_x);
+		socket.on("move", function(object) {
+			set_x(object.pos_x, object.id_num);
 		});
 	</script>
 </head>
 <body>
-	<div style="position:absolute;top:45%;left:45%;background-color:blue;height:10%;width:10%;"
-		id="div">
-		
-	</div>
-	<button style="position:absolute;top:95%;" onclick="move_x(-10)">Left</button>
-	<button style="position:absolute;top:95%;left:20%" onclick="move_x(10)">Right</button>
+	<div style="position:absolute;top:60%;left:45%;background-color:blue;height:10%;width:10%;"
+		id="p1"></div>
+	<button style="position:absolute;top:95%;" onclick="move_x(-10,'p1')">Left</button>
+	<button style="position:absolute;top:95%;left:20%" onclick="move_x(10, 'p1')">Right</button>
+	<div style="position:absolute;top:30%;left:45%;background-color:red;height:10%;width:10%;"
+		id="p2"></div>
+	<button style="position:absolute;top:95%;left:60%" onclick="move_x(-10, 'p2')">Left</button>
+	<button style="position:absolute;top:95%;left:80%" onclick="move_x(10, 'p2')">Right</button>
 </body>
 </html>

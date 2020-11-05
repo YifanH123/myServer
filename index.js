@@ -31,7 +31,7 @@ app.get('/pong', (req, res) => {
 io.on('connection', (socket) => {
 	console.log('a user connected');
 	socket.on("move", function(object) {
-		socket.broadcast.emit("move", {pos_x:object.pos_x});
+		socket.broadcast.emit("move", {pos_x:object.pos_x, id_num:object.id_num});
 	});
 });
 
