@@ -9,11 +9,7 @@
 			var pos_x = parseInt($("#"+id_num).css("left"));
 			pos_x += num;
 			$("#"+id_num).css("left", pos_x);
-			if (id_num == "p1") {
-				socket.emit("move", {pos_x:pos_x, id_num:"p2"});
-			} else {
-				socket.emit("move", {pos_x:pos_x, id_num:"p1"});
-			}
+			socket.emit("move", {pos_x:pos_x, id_num:id_num});
 		}
 		function set_x(num,id_num) {
 			$("#"+id_num).css("left", num);
