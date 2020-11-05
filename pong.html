@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		function move_x(num) {
+			var pos_x = parseInt($("#div").css("left"));
+			pos_x += num;
+			$("#div").css("left", pos_x);
+		}
+	</script>
+</head>
+<body>
+	<div style="position:absolute;top:45%;left:45%;background-color:blue;height:10%;width:10%;"
+		id="div">
+		
+	</div>
+	<button style="position:absolute;top:95%;" onclick="move_x(-10)">Left</button>
+	<button style="position:absolute;top:95%;left:20%" onclick="move_x(10)">Right</button>
+</body>
+</html>
