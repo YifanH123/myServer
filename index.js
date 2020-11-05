@@ -29,7 +29,10 @@ app.get('/pong', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+	console.log('a user connected');
+	socket.on("move", function(object) {
+		console.log(object.pos_x);
+	});
 });
 
 http.listen(port, () => {

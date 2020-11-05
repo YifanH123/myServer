@@ -8,11 +8,13 @@
 			var pos_x = parseInt($("#div").css("left"));
 			pos_x += num;
 			$("#div").css("left", pos_x);
+			socket.emit("move", {pos_x:pos_x});
 		}
 	</script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
 		var socket = io();
+		window.socket = socket;
 	</script>
 </head>
 <body>
