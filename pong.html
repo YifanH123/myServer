@@ -10,11 +10,17 @@
 			$("#div").css("left", pos_x);
 			socket.emit("move", {pos_x:pos_x});
 		}
+		function set_x(num) {
+			$("#div").css("left", num);
+		}
 	</script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
 		var socket = io();
 		window.socket = socket;
+		socket.on("move", function(num) {
+			set_x(num.pos_x);
+		});
 	</script>
 </head>
 <body>
