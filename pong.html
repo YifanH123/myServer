@@ -12,7 +12,7 @@
 			if (id_num == "p1") {
 				socket.emit("move", {pos_x:pos_x, id_num:"p2"});
 			} else {
-				socket.emit("move", {pos_x:pos_x, id_num:"p1"})
+				socket.emit("move", {pos_x:pos_x, id_num:"p1"});
 			}
 		}
 		function set_x(num,id_num) {
@@ -36,7 +36,7 @@
 	<script type="text/javascript">
 		addEventListener('mousemove', tellPos, false);
 	</script>
-	<div style="position:absolute;top:600px;left:45px;background-color:blue;height:10px;width:150px;"
+	<div style="position:absolute;top:900px;left:45px;background-color:blue;height:10px;width:150px;"
 		id="p1"></div>
 	<div style="position:absolute;top:300px;left:45px;background-color: red;height:10px;width:150px;"
 		id="p2"></div>
