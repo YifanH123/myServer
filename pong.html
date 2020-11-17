@@ -28,27 +28,27 @@
 		});
 	</script>
 	<script type="text/javascript">
-		window.d = 10;
-		window.l = 10;
+		window.d = 1;
+		window.l = 1;
 		setInterval(function() {
 			var n1 = parseInt($("#ball").css("top"));
 			var n2 = parseInt($("#ball").css("left"));
 			$("#ball").css("top", n1 + window.d);
 			$("#ball").css("left", n2 + window.l);
-			if ($("#ball").css("top") === "900px" && parseInt($("#ball").css("left").replace("px", "")) <= parseInt($("#p1").css("left").replace("px", "")) + 150 && parseInt($("#ball").css("left").replace("px", "")) >= parseInt($("#p1").css("left").replace("px", ""))) {
+			if ($("#ball").css("top") === "890px" && parseInt($("#ball").css("left").replace("px", "")) <= parseInt($("#p1").css("left").replace("px", "")) + 155 && parseInt($("#ball").css("left").replace("px", "")) >= parseInt($("#p1").css("left").replace("px", "")) - 5) {
 				window.d = parseInt("-" + String(window.d));
 			}
-			if ($("#ball").css("top") === "300px" && parseInt($("#ball").css("left").replace("px", "")) <= parseInt($("#p2").css("left").replace("px", "")) + 150 && parseInt($("#ball").css("left").replace("px", "")) >= parseInt($("#p2").css("left").replace("px", ""))) {
-				console.log("hi");
+			if ($("#ball").css("top") === "300px" && parseInt($("#ball").css("left").replace("px", "")) <= parseInt($("#p2").css("left").replace("px", "")) + 155 && parseInt($("#ball").css("left").replace("px", "")) >= parseInt($("#p2").css("left").replace("px", "")) - 5) {
 				window.d = parseInt(String(window.d).replace("-", ""));
 			}
-			if (parseInt($("#ball").css("left").replace("px", "")) >= parseInt($(window).width())) {
+			if (parseInt($("#ball").css("left").replace("px", "")) >= parseInt($(window).width()) - 5) {
 				window.l = parseInt("-" + String(window.l));
 			}
 			if (parseInt($("#ball").css("left").replace("px", "")) <= 5) {
 				window.l = parseInt(String(window.l).replace("-", ""));
 			}
-		}, 50);
+			// set_x(parseInt($("#ball").css("left").replace("px", ""))-75, "p2");
+		}, 5);
 	</script>
 </head>
 <body>
