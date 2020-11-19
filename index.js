@@ -3,6 +3,7 @@ const app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 8080;
+var num_in_room = {room1:0, room2:0, room3:0, room4:0};
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + "/welcome.html");
@@ -38,8 +39,14 @@ io.on('connection', (socket) => {
 		socket.to(socket.room).emit("move", {pos_x:object.pos_x, id_num:object.id_num});
 	});
 	socket.on("joinroom", function(object) {
-		socket.join(object.room);
-		socket.room = object.room;
+		if (num_in_room[object.room] < 2) {
+			num_in_room[object.room] ++;
+			socket.join(object.room);
+			socket.room = object.room;
+		}
+		else {
+			socket.emit("full");
+		}
 	});
 });
 
