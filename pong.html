@@ -25,8 +25,8 @@
 		}
 		function handle_set_x(p){
 			document.getElementById('info').innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
-			set_x(p.pageX-75, socket.playernumber);
-			socket.emit("move", {pos_x:p.pageX-75, id_num:"p1"});
+			set_x(p.pageX-75, socket.playernumber); // edit HERE!!!
+			socket.emit("move", {pos_x:p.pageX-75});
 		}
 	</script>
 	<script src="/socket.io/socket.io.js"></script>
