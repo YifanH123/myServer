@@ -3,7 +3,7 @@ const app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 8080;
-var num_in_room = {room1:0, room2:0, room3:0, room4:0};
+var num_in_room = {1:0, 2:0, 3:0, 4:0};
 
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + "/welcome.html");
