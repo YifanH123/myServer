@@ -36,7 +36,7 @@ app.get('/pong_homepage', (req, res) => {
 io.on('connection', (socket) => {
 	console.log('a user connected');
 	socket.on("move", function(object) {
-		socket.to(socket.room).emit("move", {pos_x:object.pos_x, id_num:object.id_num});
+		socket.to(socket.room).emit("move", {pos_x:object.pos_x, id_num:socket.playernumber});
 	});
 	socket.on("joinroom", function(object) {
 		console.log(num_in_room[object.room]);
@@ -44,6 +44,12 @@ io.on('connection', (socket) => {
 			num_in_room[object.room] ++;
 			socket.join(object.room);
 			socket.room = object.room;
+			if (num_in_room[object.room] === 1) {
+				socket.playernumber = "p1";
+			}
+			if (num_in_room[object.room] === 2) {
+				socket.playernumber = "p2";
+			}
 		}
 		else {
 			socket.emit("full");
