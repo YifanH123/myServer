@@ -28,6 +28,10 @@ app.get('/pong', (req, res) => {
 	res.sendFile(__dirname + "/pong.html");
 })
 
+app.get('/pong_homepage', (req, res) => {
+	res.sendFile(__dirname + "/homepage_pong.html");
+})
+
 io.on('connection', (socket) => {
 	console.log('a user connected');
 	socket.on("move", function(object) {
