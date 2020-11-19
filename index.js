@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
 		socket.to(socket.room).emit("move", {pos_x:object.pos_x, id_num:object.id_num});
 	});
 	socket.on("joinroom", function(object) {
-		console.log("joinroom");
+		console.log(num_in_room[object.room]);
 		if (num_in_room[object.room] < 2) {
 			num_in_room[object.room] ++;
 			socket.join(object.room);
