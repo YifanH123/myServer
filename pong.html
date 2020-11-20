@@ -25,7 +25,7 @@
 		}
 		function handle_set_x(p){
 			document.getElementById('info').innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
-			set_x(p.pageX-75, socket.playernumber); // edit HERE!!!
+			set_x(p.pageX-75, window.playernumber);
 			socket.emit("move", {pos_x:p.pageX-75});
 		}
 	</script>
@@ -40,6 +40,9 @@
 		socket.on("full", function(object) {
 			alert("This Room Is Full")
 			window.location = "https://fierce-coast-97594.herokuapp.com/pong_homepage";
+		});
+		socket.on(, function(object) {
+			window.playernumber = object.player
 		});
 	</script>
 	<script type="text/javascript">
