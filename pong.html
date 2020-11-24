@@ -25,7 +25,7 @@
 		}
 		function handle_set_x(p){
 			document.getElementById('info').innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
-			set_x(p.pageX-75, window.playernumber);
+			set_x(p.pageX-75, socket.playernumber);
 			socket.emit("move", {pos_x:p.pageX-75});
 		}
 	</script>
