@@ -42,8 +42,12 @@
 			window.location = "https://fierce-coast-97594.herokuapp.com/pong_homepage";
 		});
 		socket.on("setplayer", function(object) {
-			window.playernumber = object.player;
-			console.log(window.playernumber);
+			try {
+				window.playernumber = object.player;
+				console.log("aa" + window.playernumber);
+			} catch(e) {
+				console.log(e);
+			}
 		});
 	</script>
 	<script type="text/javascript">
