@@ -46,11 +46,13 @@ io.on('connection', (socket) => {
 			socket.room = object.room;
 			if (num_in_room[object.room] === 1) {
 				socket.playernumber = "p1";
+				console.log("p1");
 				socket.to(socket.room).emit("setplayer", {player:"p1"});
 			}
 			if (num_in_room[object.room] === 2) {
 				socket.playernumber = "p2";
-				socket.to(socket.room).emit("setplayer", {player:"p1"});
+				console.log("p2");
+				socket.to(socket.room).emit("setplayer", {player:"p2"});
 			}
 		}
 		else {
